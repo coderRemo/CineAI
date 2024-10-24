@@ -14,6 +14,8 @@ create-react-app has webpack bundler and jest in-built
 2. Configure Tailwind CSS ->
    - npm install -D tailwindcss
    - npx tailwindcss init
+3. Configure Routing
+   - npm i -D react-router-dom
 
 ## FEATURES-
 
