@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { LOGIN_BACKGROUND_IMAGE } from "../utils/constant";
+import { checkValidData } from "../utils/validate";
 
 const Form = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [rememberCheck, setRememberCheck] = useState(true);
+  const [errMessage, setErrMessage] = useState(null);
+
+  const email = useRef(null);
+  const password = useRef(null);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -17,6 +22,16 @@ const Form = () => {
     setRememberCheck(!rememberCheck);
   };
 
+  const handleButtonClick = () => {
+    // console.log(email.current.value);
+    // console.log(password.current.value);
+
+    // Form Data Validation
+    const msg = checkValidData(email.current.value, password.current.value);
+    // console.log(msg);
+    setErrMessage(msg);
+  };
+
   return (
     <div>
       <div className="absolute inset-0">
@@ -27,7 +42,7 @@ const Form = () => {
         />
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-45">
-        <div className="w-full max-w-md md:w-96 h-[35rem] flex flex-col items-center justify-center p-6">
+        <div className="w-full max-w-md md:w-[30rem] h-[35rem] flex flex-col items-center justify-center p-6">
           {/* ----------- FORM HANDLING ----------- */}
           <form
             onSubmit={onSubmitHandler}
@@ -39,7 +54,7 @@ const Form = () => {
 
             {!isSignInForm && (
               <input
-                className="border border-gray-400 rounded-lg px-4 py-2 mb-3 bg-gray-400 bg-opacity-15"
+                className="border border-gray-400 rounded-lg px-4 py-2 mb-3 bg-gray-400 bg-opacity-15 text-white"
                 type="text"
                 placeholder="Full Name"
                 required
@@ -47,18 +62,23 @@ const Form = () => {
             )}
 
             <input
-              className="border border-gray-400 rounded-lg px-4 py-2 mb-3 bg-gray-400 bg-opacity-15"
+              ref={email}
+              className="border border-gray-400 rounded-lg px-4 py-2 mb-3 bg-gray-400 bg-opacity-15 text-white"
               type="email"
               placeholder="Email Address"
               required
             />
             <input
-              className="border border-gray-400 rounded-lg px-4 py-2 mb-3 bg-gray-400 bg-opacity-15"
+              ref={password}
+              className="border border-gray-400 rounded-lg px-4 py-2 mb-3 bg-gray-400 bg-opacity-15 text-white"
               type="password"
               placeholder="Password"
               required
             />
+
+            <p className="text-red-600 mb-3">{errMessage}</p>
             <button
+              onClick={handleButtonClick}
               className={`text-white border  rounded-lg font-semibold py-2 mb-3 ${
                 isSignInForm
                   ? "border-red-700 bg-red-700"

@@ -18,7 +18,10 @@ create-react-app has webpack bundler and jest in-built
    - npm i -D react-router-dom
 4. Login Form
 5. Sign Up form on same existing form
-6. FORMIK library(initially used for huge form) can be used to handle form validation - NOT USED HERE
+   \*\*NOTE:- FORMIK library(initially used for huge form) can be used to handle form validation - NOT USED HERE
+
+6. Form Validation (using useRef() Hook) & Error Message
+7. Authentication
 
 ## FEATURES-
 
