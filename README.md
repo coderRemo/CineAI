@@ -16,6 +16,9 @@ create-react-app has webpack bundler and jest in-built
    - npx tailwindcss init
 3. Configure Routing
    - npm i -D react-router-dom
+4. Login Form
+5. Sign Up form on same existing form
+6. FORMIK library(initially used for huge form) can be used to handle form validation - NOT USED HERE
 
 ## FEATURES-
 

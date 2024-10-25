@@ -1,14 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import { LOGIN_BACKGROUND_IMAGE } from "../utils/constant";
+import Form from "./Form";
 
 const Login = () => {
   return (
-    <div>
+    <div className="relative h-screen">
       <Header />
-      <div>
-        <img src={LOGIN_BACKGROUND_IMAGE} alt="login-background-image" />
-      </div>
+      <Form />
     </div>
   );
 };
