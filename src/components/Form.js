@@ -1,14 +1,17 @@
 import React, { useRef, useState } from "react";
 import { LOGIN_BACKGROUND_IMAGE } from "../utils/constant";
 import { checkValidData } from "../utils/validate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+  const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [rememberCheck, setRememberCheck] = useState(true);
   const [errMessage, setErrMessage] = useState(null);
 
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -26,7 +29,9 @@ const Form = () => {
 
   const handleButtonClick = () => {
     // Form Data Validation
-    const msg = checkValidData(email.current.value, password.current.value);
+    const msg = isSignInForm
+      ? checkValidData(null, email.current.value, password.current.value)
+      : checkValidData(name.current.value, email.current.value, password.current.value);
     setErrMessage(msg);
 
     if (msg) return;
@@ -37,6 +42,20 @@ const Form = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+
+          // Updating Profile
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwnYnwftDUSjsQmLQvMBZ2pwDXhAJiIdfKvg&s",
+          })
+            .then(() => {
+              // Profile updated!
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrMessage(error.message);
+            });
+
           console.log(user);
         })
         .catch((error) => {
@@ -52,6 +71,7 @@ const Form = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -78,6 +98,7 @@ const Form = () => {
 
             {!isSignInForm && (
               <input
+                ref={name}
                 className="border border-gray-400 rounded-lg px-4 py-2 mb-3 bg-gray-400 bg-opacity-15 text-white"
                 type="text"
                 placeholder="Full Name"
