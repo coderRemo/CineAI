@@ -1,5 +1,8 @@
 # CineAI
 
+![image](https://github.com/user-attachments/assets/26c7df69-caf6-45a0-b7c8-27b4e164e17f)
+
+
 ## Features:
 
 Authentication
