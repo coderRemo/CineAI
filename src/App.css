@@ -1,3 +1,5 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap"); */
+
 .clip-bottom-curve {
   clip-path: ellipse(100% 90% at 50% 100%);
 }

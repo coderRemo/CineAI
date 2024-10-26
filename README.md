@@ -12,7 +12,7 @@ create-react-app has webpack bundler and jest in-built
 
 ## STEPS TAKEN TO SETUP APP-
 
-## -- Section 1 --
+## -- Section 1 -- The Beginning
 
 1. Creating the App -> npx create-react-app netflix-gpt
 2. Configure Tailwind CSS ->
@@ -32,9 +32,22 @@ create-react-app has webpack bundler and jest in-built
 8. Firebase setup
 9. Deploying app to production
 10. Create SignUp user account (sign up / sign in)
-11. Pushing User Object to Redux Store(userSlice.js)
+11. Pushing User Object to REDUX STORE (userSlice)
 12. Implemented Sign Out
 13. Update Profile
+14. BugFix:
+
+    - Sign Up user displayName and profile picture update
+    - if the user is not logged in Redirect '/browse' to Login Page and vice-versa
+
+## -- Section 2 --Building the Core
+
+15. Unsubscribed to the onAuthStateChanged Callback
+16. Adding constants file to the project for hardcoded values
+17. Register TMDB API & create an app & get access token
+18. Get data from TMDB now playing movies list API
+19. Adding movie data to the REDUX STORE (movieSlice)
+20. Creating CUSTOM HOOK (useNowPlayingMovies)
 
 ## FEATURES-
 
