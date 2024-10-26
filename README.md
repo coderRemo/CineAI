@@ -24,7 +24,7 @@ create-react-app has webpack bundler and jest in-built
 7. Authentication
 8. Firebase setup
 9. Deploying app to production
-10. Create Sign Up user account
+10. Create Sign Up user account (sign up / sign in)
 
 ## FEATURES-
 

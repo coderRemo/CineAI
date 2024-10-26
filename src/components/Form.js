@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { LOGIN_BACKGROUND_IMAGE } from "../utils/constant";
 import { checkValidData } from "../utils/validate";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Form = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -23,23 +25,47 @@ const Form = () => {
   };
 
   const handleButtonClick = () => {
-    // console.log(email.current.value);
-    // console.log(password.current.value);
-
     // Form Data Validation
     const msg = checkValidData(email.current.value, password.current.value);
-    // console.log(msg);
     setErrMessage(msg);
+
+    if (msg) return;
+
+    if (!isSignInForm) {
+      // ---------- Sign Up Logic ----------
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // setErrMessage("Email already in use.");
+          setErrMessage(`${errorCode}: ${errorMessage}`);
+        });
+    } else {
+      // ---------- Sign In Logic ----------
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // setErrMessage("Invalid Credential");
+          setErrMessage(`${errorCode}: ${errorMessage}`);
+        });
+    }
   };
 
   return (
     <div>
       <div className="absolute inset-0">
-        <img
-          className="object-cover w-full h-full"
-          src={LOGIN_BACKGROUND_IMAGE}
-          alt="login-background-image"
-        />
+        <img className="object-cover w-full h-full" src={LOGIN_BACKGROUND_IMAGE} alt="login-background-image" />
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-45">
         <div className="w-full max-w-md md:w-[30rem] h-[35rem] flex flex-col items-center justify-center p-6">
@@ -48,9 +74,7 @@ const Form = () => {
             onSubmit={onSubmitHandler}
             className="flex flex-col w-full bg-black bg-opacity-75 px-12 py-20 rounded-lg"
           >
-            <h1 className="text-white font-bold text-[35px] mb-12">
-              {isSignInForm ? "Sign In" : "Sign Up"}
-            </h1>
+            <h1 className="text-white font-bold text-[35px] mb-12">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
 
             {!isSignInForm && (
               <input
@@ -80,9 +104,7 @@ const Form = () => {
             <button
               onClick={handleButtonClick}
               className={`text-white border  rounded-lg font-semibold py-2 mb-3 ${
-                isSignInForm
-                  ? "border-red-700 bg-red-700"
-                  : "border-green-700 bg-green-700"
+                isSignInForm ? "border-red-700 bg-red-700" : "border-green-700 bg-green-700"
               }`}
             >
               {isSignInForm ? "Sign In" : "Sign Up"}
@@ -92,12 +114,7 @@ const Form = () => {
               <>
                 <p className="text-white text-center mb-2">Forgot Password?</p>
                 <div className="flex items-center space-x-2 py-2">
-                  <input
-                    type="checkbox"
-                    id="remember"
-                    checked={rememberCheck}
-                    onChange={changeRememberBox}
-                  />
+                  <input type="checkbox" id="remember" checked={rememberCheck} onChange={changeRememberBox} />
                   <label className="text-white" htmlFor="remember">
                     Remember Me
                   </label>
@@ -109,20 +126,14 @@ const Form = () => {
               {isSignInForm ? (
                 <>
                   New to Netflix?
-                  <strong
-                    onClick={toggleSignInForm}
-                    className="hover:underline cursor-pointer"
-                  >
+                  <strong onClick={toggleSignInForm} className="hover:underline cursor-pointer">
                     Sign up now.
                   </strong>
                 </>
               ) : (
                 <>
                   Already Registered?
-                  <strong
-                    onClick={toggleSignInForm}
-                    className="hover:underline cursor-pointer"
-                  >
+                  <strong onClick={toggleSignInForm} className="hover:underline cursor-pointer">
                     Sign In.
                   </strong>
                 </>
