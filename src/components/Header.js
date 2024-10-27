@@ -40,12 +40,14 @@ const Header = () => {
       {/* navbar-left */}
       <div className="flex items-center gap-12">
         <img className="w-32 md:w-40 lg:w-56" src={ASSETS.logo} alt="logo" />
-        <ul className="flex list-none gap-5">
-          <li className="cursor-pointer">Home</li>
-          <li className="cursor-pointer">TV Shows</li>
-          <li className="cursor-pointer">Movies</li>
-          <li className="cursor-pointer">New & Popular</li>
-        </ul>
+        {user && (
+          <ul className="flex list-none gap-5">
+            <li className="cursor-pointer">Home</li>
+            <li className="cursor-pointer">TV Shows</li>
+            <li className="cursor-pointer">Movies</li>
+            <li className="cursor-pointer">New & Popular</li>
+          </ul>
+        )}
       </div>
 
       {user && (

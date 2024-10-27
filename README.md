@@ -48,6 +48,14 @@ create-react-app has webpack bundler and jest in-built
 18. Get data from TMDB now playing movies list API
 19. Adding movie data to the REDUX STORE (movieSlice)
 20. Creating CUSTOM HOOK (useNowPlayingMovies)
+21. Building Browse Page
+    - STRUCTURE -
+    - MainContainer
+      - VideoBackground
+      - VideoTitle
+    - SecondaryContainer
+      - MovieLists \* n
+        - Cards \* n
 
 ## FEATURES-
 
@@ -60,7 +68,7 @@ create-react-app has webpack bundler and jest in-built
     - Trailer in Background
     - Title & Description
     - Movie Suggestions
-      - MovieLists \* N
+      - MovieLists \* n
 - NetflixGPT
   - Search Bar
   - Movie Suggestions
