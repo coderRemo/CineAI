@@ -3,6 +3,7 @@ import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import Footer from "./Footer";
 
 const Browse = () => {
   // Custom Hook
@@ -13,6 +14,7 @@ const Browse = () => {
       <Header />
       <MainContainer />
       <SecondaryContainer />
+      {/* <Footer /> */}
     </div>
   );
 };

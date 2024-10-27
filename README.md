@@ -49,6 +49,7 @@ create-react-app has webpack bundler and jest in-built
 19. Adding movie data to the REDUX STORE (movieSlice)
 20. Creating CUSTOM HOOK (useNowPlayingMovies)
 21. Building Browse Page
+
     - STRUCTURE -
     - MainContainer
       - VideoBackground
@@ -56,6 +57,10 @@ create-react-app has webpack bundler and jest in-built
     - SecondaryContainer
       - MovieLists \* n
         - Cards \* n
+
+22. Creating CUSTOM HOOK for Trailer Videos (useTrailerVideos) - to Fetch Data for Trailer Video
+23. Update Store with Trailer Videos Data
+24. Embedded YouTube video and make it Autoplay and Mute
 
 ## FEATURES-
 
