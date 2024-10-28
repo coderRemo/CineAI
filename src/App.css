@@ -1,5 +1,18 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap"); */
 
+body {
+  background: black;
+  color: white;
+}
+
 .clip-bottom-curve {
   clip-path: ellipse(100% 90% at 50% 100%);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }

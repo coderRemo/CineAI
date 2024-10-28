@@ -6,16 +6,14 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDG8wuDnucNgDhiR9RGCyTp6M63LmhjceQ",
-  authDomain: "cineai-d12eb.firebaseapp.com",
-  projectId: "cineai-d12eb",
-  storageBucket: "cineai-d12eb.appspot.com",
-  messagingSenderId: "392337597174",
-  appId: "1:392337597174:web:0ab85c3cf2cb402d3702d7",
-  measurementId: "G-8LSQF748X3",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

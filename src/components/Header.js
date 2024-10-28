@@ -46,6 +46,8 @@ const Header = () => {
             <li className="cursor-pointer">TV Shows</li>
             <li className="cursor-pointer">Movies</li>
             <li className="cursor-pointer">New & Popular</li>
+            <li className="cursor-pointer">My List</li>
+            <li className="cursor-pointer">Browse by Languages</li>
           </ul>
         )}
       </div>
