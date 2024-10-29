@@ -1,6 +1,5 @@
 import React from "react";
 import { ASSETS } from "../utils/constant";
-import SecondaryContainer from "./SecondaryContainer";
 
 const VideoTitle = ({ title, overview }) => {
   return (
@@ -20,7 +19,6 @@ const VideoTitle = ({ title, overview }) => {
           </button>
         </div>
       </div>
-      {/* <SecondaryContainer /> */}
     </div>
   );
 };

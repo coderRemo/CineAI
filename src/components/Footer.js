@@ -3,7 +3,7 @@ import { ASSETS } from "../utils/constant";
 
 const Footer = () => {
   return (
-    <div className="px-4 sm:px-12 max-w-[1000px] mx-auto bg-black">
+    <div className="px-4 sm:px-12 max-w-[1000px] mx-auto bg-black pt-5">
       <div className="flex gap-5 my-10">
         <img className="w-8 cursor-pointer" src={ASSETS.facebook} alt="" />
         <img className="w-8 cursor-pointer" src={ASSETS.instagram} alt="" />

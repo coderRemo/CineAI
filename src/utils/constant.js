@@ -9,6 +9,9 @@ import youtube from "../assets/youtube_icon.png";
 import playIcon from "../assets/play_icon.png";
 import infoIcon from "../assets/info_icon.png";
 import heroBanner from "../assets/hero_banner.jpg";
+import backIcon from "../assets/back_arrow_icon.png";
+import spinner from "../assets/spinner.gif";
+import searchIcon from "../assets/search_icon.svg";
 
 export const ASSETS = {
   logo,
@@ -22,6 +25,9 @@ export const ASSETS = {
   playIcon,
   infoIcon,
   heroBanner,
+  backIcon,
+  spinner,
+  searchIcon,
 };
 
 export const LOGIN_BACKGROUND_IMAGE =
