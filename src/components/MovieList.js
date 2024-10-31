@@ -15,7 +15,7 @@ const MovieList = ({ title, movies }) => {
   }, []);
   // horizontal scrolling (END)
 
-  console.log(movies);
+  // console.log(movies);
 
   return (
     <div className="mt-12 mb-8">

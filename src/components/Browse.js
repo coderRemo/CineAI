@@ -7,8 +7,12 @@ import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedVideos from "../hooks/useTopRatedVideos";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import { useSelector } from "react-redux";
+import AiSearchPage from "./AiSearchPage";
 
 const Browse = () => {
+  const aiSearch = useSelector((store) => store.search.showSearch);
+
   // Custom Hook
   useNowPlayingMovies();
   usePopularMovies();
@@ -18,8 +22,15 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      <MainContainer />
-      <SecondaryContainer />
+      {aiSearch ? (
+        <AiSearchPage />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
+
       <Footer />
     </div>
   );

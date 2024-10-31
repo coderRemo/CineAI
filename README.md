@@ -6,7 +6,7 @@
 
 - 🔗 Authentication
 - 📜 Form Handling
-- 🚀 Chat GPT API to search movies 📺
+- 🚀 GPT API to search movies 📺
 
 create-react-app has webpack bundler and jest in-built
 
@@ -65,6 +65,11 @@ create-react-app has webpack bundler and jest in-built
 - Built MovieList
 - Built MovieCard
 - CUSTOM HOOK (usePopularMovies)
+
+## -- Section 3 --Wrapping Up
+
+- GPT recommendation system (search feature)
+- multi-language feature in app
 
 ## FEATURES-
 
