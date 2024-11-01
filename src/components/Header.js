@@ -14,7 +14,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const showSearch = useSelector((store) => store.search.showSearch);
   const user = useSelector((store) => store.user);
-  // console.log(user);
 
   const handleSignOut = () => {
     signOut(auth);
@@ -46,7 +45,6 @@ const Header = () => {
   };
 
   const handleLanguageChange = (e) => {
-    // console.log(e.target.value);
     dispatch(changeLanguage(e.target.value));
   };
 

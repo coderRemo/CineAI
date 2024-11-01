@@ -15,8 +15,6 @@ const MovieList = ({ title, movies }) => {
   }, []);
   // horizontal scrolling (END)
 
-  // console.log(movies);
-
   return (
     <div className="mt-12 mb-8">
       <h2 className="mb-2 text-3xl py-6 font-semibold pl-5">{title}</h2>

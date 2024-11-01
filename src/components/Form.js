@@ -20,13 +20,9 @@ const Form = () => {
     e.preventDefault();
   };
 
-  const toggleSignInForm = () => {
-    setIsSignInForm(!isSignInForm);
-  };
+  const toggleSignInForm = () => setIsSignInForm(!isSignInForm);
 
-  const changeRememberBox = () => {
-    setRememberCheck(!rememberCheck);
-  };
+  const changeRememberBox = () => setRememberCheck(!rememberCheck);
 
   const handleButtonClick = () => {
     // Form Data Validation

@@ -6,7 +6,7 @@
 
 - 🔗 Authentication
 - 📜 Form Handling
-- 🚀 GPT API to search movies 📺
+- 🚀 OpenAI API to search movies 📺
 
 create-react-app has webpack bundler and jest in-built
 
