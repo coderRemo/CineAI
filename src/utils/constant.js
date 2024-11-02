@@ -44,6 +44,8 @@ export const API_OPTIONS = {
   },
 };
 
+export const TRENDING_VIDEOS = "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+
 export const NOW_PLAYING_MOVIES = "https://api.themoviedb.org/3/movie/now_playing?page=1";
 
 export const POPULAR_MOVIES = "https://api.themoviedb.org/3/movie/popular?page=1";

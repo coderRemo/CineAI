@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { ASSETS, SUPPORTED_LANG } from "../utils/constant";
-import { toggleSearchView } from "../utils/searchSlice";
+import { clearGptMovies, toggleSearchView } from "../utils/searchSlice";
 import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
@@ -30,6 +30,7 @@ const Header = () => {
       } else {
         // User is signed out
         dispatch(removeUser());
+        dispatch(clearGptMovies());
         navigate("/");
       }
     });
@@ -54,27 +55,37 @@ const Header = () => {
         <img className="w-32 md:w-40 lg:w-56" src={ASSETS.logo} alt="logo" />
         {user && (
           <>
-            <ul className="flex list-none gap-5">
-              <li className="cursor-pointer">Home</li>
-              <li className="cursor-pointer">TV Shows</li>
-              <li className="cursor-pointer">Movies</li>
-              <li className="cursor-pointer">New & Popular</li>
-              <li className="cursor-pointer">My List</li>
+            <ul className="flex list-none">
+              {/* <li className="cursor-pointer">Home</li>
+              <li className="cursor-pointer md:flex">{showSearch ? "Home" : "GPT Search"}</li>
+              <li className="cursor-pointer hidden md:flex md:text-xs">TV Shows</li>
+              <li className="cursor-pointer hidden md:flex">Movies</li>
+              <li className="cursor-pointer hidden md:flex">New & Popular</li>
+              <li className="cursor-pointer hidden md:flex text-xs md:text-base">TV Shows</li>
+              <li className="cursor-pointer hidden md:flex">My List</li> */}
               {showSearch && (
-                <li className="cursor-pointer" onClick={() => setShowLanguage((prev) => !prev)}>
+                <li
+                  className="cursor-pointer text-xs md:text-base lg:text-lg"
+                  onClick={() => setShowLanguage((prev) => !prev)}
+                >
                   Browse by Languages
                 </li>
               )}
             </ul>
 
             {showLanguage && (
-              <select onChange={handleLanguageChange} className="p-1 text-white bg-slate-900">
-                {SUPPORTED_LANG.map((language) => (
-                  <option key={language.identifier} value={language.identifier}>
-                    {language.name}
-                  </option>
-                ))}
-              </select>
+              <div className="relative md:static">
+                <select
+                  onChange={handleLanguageChange}
+                  className="absolute md:static p-1 text-white bg-slate-900 top-5 md:top-0 right-9 md:right-0"
+                >
+                  {SUPPORTED_LANG.map((language) => (
+                    <option key={language.identifier} value={language.identifier}>
+                      {language.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             )}
           </>
         )}
@@ -83,13 +94,13 @@ const Header = () => {
       {user && (
         <div onClick={handleGPTSearchClick} className="flex items-center gap-[20px]">
           {/* <button className="bg-purple-600 hover:bg-purple-500 rounded-md px-3 py-[5px]">GPT Search</button> */}
-          <p className="cursor-pointer">GPT Search</p>
+          <p className="cursor-pointer text-xs md:text-base lg:text-lg">{showSearch ? "Home" : "GPT Search"}</p>
 
           <img className="w-[20px] cursor-pointer" src={ASSETS.notification} alt="bell-icon" />
 
           <div className="relative flex items-center cursor-pointer gap-5 group">
-            <p>{user?.displayName || "User"}</p>
-            <img className="rounded-sm w-9" src={user?.photoURL || ASSETS.profileImage} alt="profile-image" />
+            <p className="text-xs md:text-base lg:text-lg">{user?.displayName || "User"}</p>
+            <img className="rounded-sm w-7 md:w-9" src={user?.photoURL || ASSETS.profileImage} alt="profile-image" />
             <img src={ASSETS.dropDown} alt="" />
             <div className="absolute top-[100%] right-0 w-[100px] px-6 py-2 max-w-max rounded-sm z-10 text-white bg-slate-900 hidden group-hover:block">
               <p onClick={handleSignOut} className="text-[13px] text-center hover:underline ">

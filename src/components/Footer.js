@@ -3,14 +3,14 @@ import { ASSETS } from "../utils/constant";
 
 const Footer = () => {
   return (
-    <div className="px-4 sm:px-12 max-w-[1000px] mx-auto bg-black pt-5">
+    <div className="px-4 sm:px-12 max-w-[1000px] mx-auto bg-black pt-5 bottom-0 w-full">
       <div className="flex gap-5 my-10">
         <img className="w-8 cursor-pointer" src={ASSETS.facebook} alt="" />
         <img className="w-8 cursor-pointer" src={ASSETS.instagram} alt="" />
         <img className="w-8 cursor-pointer" src={ASSETS.twitter} alt="" />
         <img className="w-8 cursor-pointer" src={ASSETS.youtube} alt="" />
       </div>
-      <ul className="text-white grid grid-cols-4 auto-cols-auto gap-4 mb-8 list-none transition-transform">
+      <ul className="text-white grid grid-cols-2 md:grid-cols-4 auto-cols-auto gap-4 mb-8 list-none transition-transform">
         <li className="cursor-pointer hover:text-gray-400">FAQ</li>
         <li className="cursor-pointer hover:text-gray-400">Help Centre</li>
         <li className="cursor-pointer hover:text-gray-400">Account</li>

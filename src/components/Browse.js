@@ -9,11 +9,13 @@ import useTopRatedVideos from "../hooks/useTopRatedVideos";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
 import { useSelector } from "react-redux";
 import AiSearchPage from "./AiSearchPage";
+import useTrendingVideos from "../hooks/useTrendingVideos";
 
 const Browse = () => {
   const aiSearch = useSelector((store) => store.search.showSearch);
 
   // Custom Hook
+  useTrendingVideos();
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedVideos();

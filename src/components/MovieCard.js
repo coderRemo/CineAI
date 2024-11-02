@@ -3,9 +3,11 @@ import { IMG_URL } from "../utils/constant";
 
 const MovieCard = ({ poster, movieTitle }) => {
   return (
-    <div className="relative w-[300px] flex-none pl-5">
-      <img className="w-full rounded-md cursor-pointer" src={IMG_URL + poster} alt="" />
-      <p className="absolute bottom-2 right-2 font-semibold">{movieTitle}</p>
+    <div className="relative w-full min-w-[230px] max-w-[230px] h-80 overflow-hidden rounded cursor-pointer">
+      <img src={IMG_URL + poster} alt="" />
+      <div className="absolute bottom-0 h-16 backdrop-blur-3xl w-full max-w-[230px] bg-black/60 p-2">
+        <p className="text-ellipsis line-clamp-1 text-lg font-semibold">{movieTitle}</p>
+      </div>
     </div>
   );
 };

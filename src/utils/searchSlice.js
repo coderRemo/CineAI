@@ -17,9 +17,13 @@ const searchSlice = createSlice({
       state.movieNames = movieNames;
       state.movieResults = movieResults;
     },
+    clearGptMovies: (state) => {
+      state.movieNames = null;
+      state.movieResults = null;
+    },
   },
 });
 
-export const { toggleSearchView, addGptMovies } = searchSlice.actions;
+export const { toggleSearchView, addGptMovies, clearGptMovies } = searchSlice.actions;
 
 export default searchSlice.reducer;

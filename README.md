@@ -70,6 +70,10 @@ create-react-app has webpack bundler and jest in-built
 
 - GPT recommendation system (search feature)
 - multi-language feature in app
+- working with OpenAI API key
+- GPT Search API call
+- Memoization
+- Responsive Site
 
 ## FEATURES-
 

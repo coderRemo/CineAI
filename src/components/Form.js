@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { LOGIN_BACKGROUND_IMAGE, USER_PROFILE_IMAGE } from "../utils/constant";
+import { LOGIN_BACKGROUND_IMAGE, USER_PROFILE_IMAGE, ASSETS } from "../utils/constant";
 import { checkValidData } from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -11,6 +11,7 @@ const Form = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [rememberCheck, setRememberCheck] = useState(true);
   const [errMessage, setErrMessage] = useState(null);
+  const [loading, setloading] = useState(false);
 
   const name = useRef(null);
   const email = useRef(null);
@@ -21,7 +22,6 @@ const Form = () => {
   };
 
   const toggleSignInForm = () => setIsSignInForm(!isSignInForm);
-
   const changeRememberBox = () => setRememberCheck(!rememberCheck);
 
   const handleButtonClick = () => {
@@ -32,6 +32,8 @@ const Form = () => {
     setErrMessage(msg);
 
     if (msg) return;
+
+    setloading(true);
 
     if (!isSignInForm) {
       // ---------- Sign Up Logic ----------
@@ -62,7 +64,8 @@ const Form = () => {
           const errorMessage = error.message;
           // setErrMessage("Email already in use.");
           setErrMessage(`${errorCode}: ${errorMessage}`);
-        });
+        })
+        .finally(() => setloading(false));
     } else {
       // ---------- Sign In Logic ----------
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
@@ -76,11 +79,16 @@ const Form = () => {
           const errorMessage = error.message;
           // setErrMessage("Invalid Credential");
           setErrMessage(`${errorCode}: ${errorMessage}`);
-        });
+        })
+        .finally(() => setloading(false));
     }
   };
 
-  return (
+  return loading ? (
+    <div className="w-[100%] h-screen flex items-center justify-center">
+      <img src={ASSETS.spinner} alt="loading-spinner" />
+    </div>
+  ) : (
     <div>
       <div className="absolute inset-0">
         <img className="object-cover w-full h-full" src={LOGIN_BACKGROUND_IMAGE} alt="login-background-image" />

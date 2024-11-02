@@ -3,6 +3,7 @@
 body {
   background: black;
   color: white;
+  scroll-behavior: smooth;
 }
 
 .clip-bottom-curve {
