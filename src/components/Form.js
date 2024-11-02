@@ -57,7 +57,7 @@ const Form = () => {
               setErrMessage(error.message);
             });
 
-          console.log(user);
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -152,7 +152,7 @@ const Form = () => {
             <p className="text-white">
               {isSignInForm ? (
                 <>
-                  New to Netflix?
+                  New to CineAI?
                   <strong onClick={toggleSignInForm} className="hover:underline cursor-pointer">
                     Sign up now.
                   </strong>

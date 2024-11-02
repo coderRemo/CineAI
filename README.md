@@ -34,7 +34,7 @@
 
 ## -- Section 1 -- The Beginning
 
-- Creating the App -> npx create-react-app netflix-gpt
+- Creating the App -> npx create-react-app <folder-name>
 - Configure Tailwind CSS ->
 
   - npm install -D tailwindcss
