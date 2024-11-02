@@ -2,13 +2,33 @@
 
 ![image](https://github.com/user-attachments/assets/26c7df69-caf6-45a0-b7c8-27b4e164e17f)
 
-## Main Features:
+## Main Features-
 
 - 🔗 Authentication
 - 📜 Form Handling
 - 🚀 OpenAI API to search movies 📺
 
-create-react-app has webpack bundler and jest in-built
+## Built with-
+
+- React
+- Redux & Redux - toolkit
+- Tailwind CSS
+
+## FEATURES-
+
+- Login/Sign Up
+  - Sign In/Sign Up Form
+  - Redirect to Browse Page
+- Browse (after Authentication)
+  - Header
+  - Main Movie
+    - Trailer in Background
+    - Title & Description
+    - Movie Suggestions
+      - MovieLists \* n
+- CineAI GPT
+  - Search Bar
+  - Movie Suggestions
 
 ## STEPS TAKEN TO SETUP APP-
 
@@ -74,19 +94,3 @@ create-react-app has webpack bundler and jest in-built
 - GPT Search API call
 - Memoization
 - Responsive Site
-
-## FEATURES-
-
-- Login/Sign Up
-  - Sign In/Sign Up Form
-  - Redirect to Browse Page
-- Browse (after Authentication)
-  - Header
-  - Main Movie
-    - Trailer in Background
-    - Title & Description
-    - Movie Suggestions
-      - MovieLists \* n
-- NetflixGPT
-  - Search Bar
-  - Movie Suggestions
