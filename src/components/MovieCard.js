@@ -3,7 +3,7 @@ import { IMG_URL } from "../utils/constant";
 
 const MovieCard = ({ poster, movieTitle }) => {
   return (
-    <div className="relative w-full min-w-[230px] max-w-[230px] h-80 overflow-hidden rounded cursor-pointer">
+    <div className="relative w-full min-w-[200px] max-w-[200px] md:min-w-[230px] md:max-w-[230px] h-64 md:h-80 overflow-hidden rounded cursor-pointer">
       <img src={IMG_URL + poster} alt="" />
       <div className="absolute bottom-0 h-16 backdrop-blur-3xl w-full max-w-[230px] bg-black/60 p-2">
         <p className="text-ellipsis line-clamp-1 text-lg font-semibold">{movieTitle}</p>

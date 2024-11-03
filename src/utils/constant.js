@@ -8,7 +8,6 @@ import twitter from "../assets/twitter_icon.png";
 import youtube from "../assets/youtube_icon.png";
 import playIcon from "../assets/play_icon.png";
 import infoIcon from "../assets/info_icon.png";
-import heroBanner from "../assets/hero_banner.jpg";
 import backIcon from "../assets/back_arrow_icon.png";
 import spinner from "../assets/spinner.gif";
 import searchIcon from "../assets/search_icon.svg";
@@ -24,14 +23,13 @@ export const ASSETS = {
   youtube,
   playIcon,
   infoIcon,
-  heroBanner,
   backIcon,
   spinner,
   searchIcon,
 };
 
 export const LOGIN_BACKGROUND_IMAGE =
-  "https://assets.nflxext.com/ffe/siteui/vlv3/74d734ca-0eab-4cd9-871f-bca01823d872/web/IN-en-20241021-TRIFECTA-perspective_2277eb50-9da3-4fdf-adbe-74db0e9ee2cf_large.jpg";
+  "https://media.istockphoto.com/id/1295114854/photo/empty-red-armchairs-of-a-theater-ready-for-a-show.jpg?b=1&s=612x612&w=0&k=20&c=z0aVjmKAMuc9cTXGGD5_Y2W06ONe1MtMMrQplOyk1L4=";
 
 export const USER_PROFILE_IMAGE =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwnYnwftDUSjsQmLQvMBZ2pwDXhAJiIdfKvg&s";

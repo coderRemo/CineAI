@@ -41,18 +41,17 @@ const MovieList = ({ title, movies }) => {
           ))}
         </div>
 
-        <div className="absolute hidden md:flex top-0 items-center justify-between w-full h-full">
-          <button onClick={handlePrev} className="bg-white p-1 text-black rounded-full -ml-2 z-10">
-            <FaAngleLeft />
-          </button>
-          <button onClick={handleNext} className="bg-white p-1 text-black rounded-full -mr-2 z-10">
-            <FaAngleRight />
-          </button>
-        </div>
+        {(movies?.length || 0) > 3 && (
+          <div className="absolute hidden md:flex top-0 items-center justify-between w-full h-full">
+            <button onClick={handlePrev} className="bg-white p-1 text-black rounded-full -ml-2 z-10">
+              <FaAngleLeft />
+            </button>
+            <button onClick={handleNext} className="bg-white p-1 text-black rounded-full -mr-2 z-10">
+              <FaAngleRight />
+            </button>
+          </div>
+        )}
       </div>
-      {/* <div className="mt-12 mb-8">
-    <h2 className="md:mb-2 text-xl md:text-2xl lg:text-3xl py-6 font-semibold pl-5">{title}</h2>
-    <div ref={cardScroll} className="flex overflow-x-scroll space-x-4 scrollbar-hide"></div> */}
     </div>
   );
 };
