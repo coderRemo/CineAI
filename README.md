@@ -1,6 +1,7 @@
 # CineAI
 
-![image](https://github.com/user-attachments/assets/26c7df69-caf6-45a0-b7c8-27b4e164e17f)
+![image](https://github.com/user-attachments/assets/04b36754-2659-4d74-8284-dcc78ed11476)
+
 
 ## Main Features-
 
